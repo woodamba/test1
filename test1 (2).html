@@ -1,0 +1,29 @@
+<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+<div id="aa1"></div>
+<div id="aa2"></div>
+<div id="aa3"></div>
+<script>
+	(function($){
+		$.fn.extend({
+			test1:function(options){
+				var defaults = {
+					val1:'1',
+					val2:'2'
+				}
+				
+				var options = $.extend({},defaults,options);
+				
+				return this.each(function(){
+					$("body").append("<div>"+options.val1+"</div>");
+				});
+			}
+		});	
+	})(jQuery)
+	
+	$(function(){
+		$("#aa1").test1();
+		$("#aa2").test1({val1:'2'});
+		$("#aa3").test1();
+	});
+	
+</script>
